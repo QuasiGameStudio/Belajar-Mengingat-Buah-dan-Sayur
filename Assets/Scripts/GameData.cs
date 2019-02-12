@@ -9,9 +9,7 @@ public class GameData : Singleton<GameData> {
 	void Awake(){
 		if(resetData)
 			PlayerPrefs.DeleteAll();
-	}
 
-	void Start(){
 		//Set First Level Opened
 		for (int i = 0; i < 4; i++)
 		{
@@ -20,6 +18,10 @@ public class GameData : Singleton<GameData> {
 				SetTypeLevelOpened(i,j,1);
 			}
 		}
+	}
+
+	void Start(){
+		
 	}
 
 	public void SetLevelNum(int num){
