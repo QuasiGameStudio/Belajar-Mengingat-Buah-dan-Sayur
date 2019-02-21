@@ -165,7 +165,7 @@ public class GameManager : Singleton<GameManager> {
 		int type = GameData.Instance.GetGameType();
 		GameData.Instance.SetTypeLevelOpened(type,level+1,1);
 
-		AdMobmanager.Instance.ShowInterstitial();
+		// AdMobmanager.Instance.ShowInterstitial();
 
 		GUIManager.Instance.ActiveFinishPanel();
 

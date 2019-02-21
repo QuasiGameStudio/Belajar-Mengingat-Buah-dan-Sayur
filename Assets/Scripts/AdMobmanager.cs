@@ -15,7 +15,7 @@ public class AdMobmanager : Singleton<AdMobmanager> {
 	#region
 // #if GOOGLE_MOBILE_ADS
 	
-	bool testingMode = false;
+	bool testingMode = true;
 
 	BannerView bannerView;
 	InterstitialAd interstitial;
@@ -26,14 +26,19 @@ public class AdMobmanager : Singleton<AdMobmanager> {
 // #endif
 
 // #if GOOGLE_MOBILE_ADS
-	private string appId = "ca-app-pub-3063392359052388~7098972659";	
-	private string bannerId = "ca-app-pub-3063392359052388/6213922931";	
-	private string interstitialId = "ca-app-pub-3063392359052388/7196720169";
+	private string appId = "ca-app-pub-3204981671781860~3979982505";	
+
+	//original ads id
+	// private string bannerId = "ca-app-pub-3204981671781860/2343467205";	
+	// private string interstitialId = "ca-app-pub-3204981671781860/8130856791";
+
+	//test ads id
+	private string bannerId = "ca-app-pub-3940256099942544/6300978111";	
+	private string interstitialId = "ca-app-pub-3940256099942544/1033173712";
 
 	//Edit with your device id
 	private string testDeviceId = "81A5D70CE479330C99C85E799E15DA1A";
-	//J D93FCD789EBA4F17
-	//Z 2853274C00C13F2D
+	
 	
 // #endif
 
@@ -54,9 +59,7 @@ public class AdMobmanager : Singleton<AdMobmanager> {
 // #if GOOGLE_MOBILE_ADS
 		MobileAds.Initialize(appId);
 // #endif
-
-		Set();
-	
+		Set();	
 	}
 
 	public void Set(){
@@ -120,7 +123,7 @@ public class AdMobmanager : Singleton<AdMobmanager> {
 
     public void HandleOnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-	
+		SceneController.Instance.GoToScene(goToSceneWithAdName);
     }
 
     public void HandleOnAdOpened(object sender, EventArgs args)
@@ -130,7 +133,7 @@ public class AdMobmanager : Singleton<AdMobmanager> {
 
     public void HandleOnAdClosed(object sender, EventArgs args)
     {
-					
+		SceneController.Instance.GoToScene(goToSceneWithAdName);			
 	}
 
     public void HandleOnAdLeavingApplication(object sender, EventArgs args)
@@ -147,7 +150,6 @@ public class AdMobmanager : Singleton<AdMobmanager> {
 	void Start () {
 
 		//MobileAds.Initialize(appId);
-
 		//ShowBanner();
 		//ShowInterstitial();
 		
@@ -181,6 +183,22 @@ public class AdMobmanager : Singleton<AdMobmanager> {
 
 	public void ShowInterstitial(){
 // #if GOOGLE_MOBILE_ADS
+		if (interstitial.IsLoaded())
+		{
+			interstitial.Show();
+		}
+		else
+		{
+			RequestInterstitial();
+		}
+// #endif
+	}
+
+	public void ShowInterstitial(string goToSceneWithAdName){
+// #if GOOGLE_MOBILE_ADS
+
+		this.goToSceneWithAdName = goToSceneWithAdName;
+
 		if (interstitial.IsLoaded())
 		{
 			interstitial.Show();

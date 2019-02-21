@@ -32,6 +32,10 @@ public class SceneController : Singleton<SceneController> {
 		SceneManager.LoadScene (sceneName);
 	}
 
+	public void GoToLevel(string sceneName){
+		AdMobmanager.Instance.ShowInterstitial(sceneName);
+	}
+
 	public void QuitGame(){
 		Application.Quit ();
 	}
