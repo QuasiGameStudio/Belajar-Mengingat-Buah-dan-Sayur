@@ -955,8 +955,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920061719}
-        m_MethodName: GoToLevel
+      - m_Target: {fileID: 1170466153}
+        m_MethodName: ChangeSceneWithInterAds
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1440,8 +1440,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920061719}
-        m_MethodName: GoToLevel
+      - m_Target: {fileID: 1170466153}
+        m_MethodName: ChangeSceneWithInterAds
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1457,7 +1457,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1889,7 +1889,8 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114528654232971090, guid: b9835bd10f31f1946be2bbba51a67afe, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b9835bd10f31f1946be2bbba51a67afe, type: 3}
 --- !u!1 &801515555
 GameObject:
@@ -2269,18 +2270,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870864585}
   m_CullTransparentMesh: 0
---- !u!114 &920061719 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114216342262194468, guid: 3ab0e3ca3afab204f8f46316d90a5afd,
-    type: 3}
-  m_PrefabInstance: {fileID: 363141460}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37620e0b1b3667d4fa3e5be9f89e58c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &982891040
 GameObject:
   m_ObjectHideFlags: 0
@@ -2528,8 +2517,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920061719}
-        m_MethodName: GoToLevel
+      - m_Target: {fileID: 1170466153}
+        m_MethodName: ChangeSceneWithInterAds
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2545,7 +2534,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2822,6 +2811,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146629018}
   m_CullTransparentMesh: 0
+--- !u!1 &1170466151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1170466152}
+  - component: {fileID: 1170466153}
+  m_Layer: 0
+  m_Name: AdsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1170466152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170466151}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1170466153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170466151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 229cbb1e721e4b74e8df14a0a9f8594a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1183278278
 GameObject:
   m_ObjectHideFlags: 0
@@ -3186,8 +3218,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920061719}
-        m_MethodName: GoToLevel
+      - m_Target: {fileID: 1170466153}
+        m_MethodName: ChangeSceneWithInterAds
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3326,8 +3358,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920061719}
-        m_MethodName: GoToLevel
+      - m_Target: {fileID: 1170466153}
+        m_MethodName: ChangeSceneWithInterAds
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3343,7 +3375,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3951,8 +3983,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920061719}
-        m_MethodName: GoToLevel
+      - m_Target: {fileID: 1170466153}
+        m_MethodName: ChangeSceneWithInterAds
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4488,8 +4520,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920061719}
-        m_MethodName: GoToLevel
+      - m_Target: {fileID: 1170466153}
+        m_MethodName: ChangeSceneWithInterAds
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4707,8 +4739,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920061719}
-        m_MethodName: GoToLevel
+      - m_Target: {fileID: 1170466153}
+        m_MethodName: ChangeSceneWithInterAds
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5034,8 +5066,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920061719}
-        m_MethodName: GoToLevel
+      - m_Target: {fileID: 1170466153}
+        m_MethodName: ChangeSceneWithInterAds
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5051,7 +5083,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5370,8 +5402,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920061719}
-        m_MethodName: GoToLevel
+      - m_Target: {fileID: 1170466153}
+        m_MethodName: ChangeSceneWithInterAds
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5387,7 +5419,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

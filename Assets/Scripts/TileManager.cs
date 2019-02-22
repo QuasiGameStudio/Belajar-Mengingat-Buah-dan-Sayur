@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class TileManager : Singleton<TileManager> {
 
-	[SerializeField] private Sprite[] fruitSprites;
+	[SerializeField] private Sprite[] fruitSprites = null;
 
 	// [SerializeField] private GameObject[] boards;
-	[SerializeField] private Transform boardParent;
+	[SerializeField] private Transform boardParent = null;
 
 	private GameObject[] tiles;
 

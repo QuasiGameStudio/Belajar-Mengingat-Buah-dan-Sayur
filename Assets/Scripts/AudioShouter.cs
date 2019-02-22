@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioShouter : Singleton<AudioShouter> {
 
-	[SerializeField] private AudioClip[] clips;
+	[SerializeField] private AudioClip[] clips = null;
 
 	public void ShoutClip(int clipIndex){
 		GetComponent<AudioSource>().PlayOneShot(clips[clipIndex]);

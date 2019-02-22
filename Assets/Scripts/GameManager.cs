@@ -14,7 +14,7 @@ public class GameManager : Singleton<GameManager> {
 
 	private bool gameIsPlaying = false;
 
-	[SerializeField] private GameObject gameMusic;
+	[SerializeField] private GameObject gameMusic = null;
 
 	//GameType things
 	//15 //30 //55 //70 //1.55 //2.35 //3.10 //4 //4.50 //6.40
@@ -22,8 +22,8 @@ public class GameManager : Singleton<GameManager> {
 
 	// Use this for initialization
 	void Start () {
-		AdMobmanager.Instance.Set();		
-		AdMobmanager.Instance.ShowBanner();
+		AdMobManager.Instance.Set();		
+		AdMobManager.Instance.ShowBanner();
 
 		gameType = GameData.Instance.GetGameType();
 		gameLevel = GameData.Instance.GetLevelNum();

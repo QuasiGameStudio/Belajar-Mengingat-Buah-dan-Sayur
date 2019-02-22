@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class HomeManager : MonoBehaviour {
 
-	[SerializeField] private Text gameTypeText;
-	[SerializeField] private GameObject[] levelButtons;
+	[SerializeField] private Text gameTypeText = null;
+	[SerializeField] private GameObject[] levelButtons = null;
 
 	// Use this for initialization
 	void Start () {
@@ -25,8 +25,8 @@ public class HomeManager : MonoBehaviour {
 		}	
 		StartCoroutine("PopUpLevelButtons");
 
-		AdMobmanager.Instance.Set();		
-		AdMobmanager.Instance.ShowBanner();
+		AdMobManager.Instance.Set();		
+		AdMobManager.Instance.ShowBanner();
 	}
 	
 	// Update is called once per frame

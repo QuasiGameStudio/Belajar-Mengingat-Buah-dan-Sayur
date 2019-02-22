@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameData : Singleton<GameData> {
 
-	[SerializeField] private bool resetData;
+	[SerializeField] private bool resetData = false;
 
 	void Awake(){
 		if(resetData)
@@ -46,5 +46,17 @@ public class GameData : Singleton<GameData> {
 
 	public int GetTypeLevelOpened(int type, int level){
 		return PlayerPrefs.GetInt("TypeLevel_" + type + "_" + level, 0);
+	}
+
+	public void AddAdsThresHold(int adsType){
+		PlayerPrefs.SetInt("ThresHold_" + adsType, GetAdsThresHold(adsType) + 1);
+	}
+
+	public void ResetAdsThresHold(int adsType){
+		PlayerPrefs.SetInt("ThresHold_" + adsType, 0);
+	}
+
+	public int GetAdsThresHold(int adsType){
+		return PlayerPrefs.GetInt("ThresHold_" + adsType, 0);
 	}
 }

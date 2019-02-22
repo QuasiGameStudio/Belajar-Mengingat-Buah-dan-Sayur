@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class GUIManager : Singleton<GUIManager> {
 
-	[SerializeField] private GameObject finishPanel;
-	[SerializeField] private GameObject gameOverPanel;
-	[SerializeField] private Text clockText;
-	[SerializeField] private Text finishClockText;
-	[SerializeField] private GameObject[] stars;
+	[SerializeField] private GameObject finishPanel = null;
+	[SerializeField] private GameObject gameOverPanel = null;
+	[SerializeField] private Text clockText = null;
+	[SerializeField] private Text finishClockText = null;
+	[SerializeField] private GameObject[] stars = null;
 
-	[SerializeField] private Image clockImageFilled;
+	[SerializeField] private Image clockImageFilled = null;
 
 	// Use this for initialization
 	void Start () {
