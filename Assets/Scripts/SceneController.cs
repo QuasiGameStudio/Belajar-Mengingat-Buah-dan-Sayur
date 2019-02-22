@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 
 public class SceneController : Singleton<SceneController> {
@@ -30,6 +31,14 @@ public class SceneController : Singleton<SceneController> {
 
 	public void GoToScene(string sceneName){
 		SceneManager.LoadScene (sceneName);
+	}
+
+	public void GoToSceneWithAds(string dataString){
+		//data index is
+		// 0 = adsType , 1 = adsIdIndex , 2 = sceneName
+		string[] data = dataString.Split('_');
+		
+		AdsManager.Instance.CallAdsWithScene(Int32.Parse(data[0]), Int32.Parse(data[1]), data[2]);
 	}
 
 	

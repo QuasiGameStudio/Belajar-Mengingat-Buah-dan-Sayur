@@ -22,7 +22,7 @@ public class AdMobManager : Singleton<AdMobManager> {
 	AdRequest requestBanner;
 	AdRequest requestInterstitial;
 
-	string goToSceneWithAdName = "null";
+	
 	int idIndex = 0;
 	bool lastAdsIsSuccessToLoaded = false;
 // #endif
@@ -47,7 +47,6 @@ public class AdMobManager : Singleton<AdMobManager> {
 	
 	
 // #endif
-
 	
 	int tryingToShowInterstitial;
 
@@ -139,27 +138,7 @@ public class AdMobManager : Singleton<AdMobManager> {
         }
 // #endif
 	}
-
-	public void ShowInterstitial(string goToSceneWithAdName){
-// #if GOOGLE_MOBILE_ADS
-
-		this.goToSceneWithAdName = goToSceneWithAdName;
-
-		if (interstitial.IsLoaded())
-		{
-			interstitial.Show();
-		}
-		else
-		{
-			RequestInterstitial(idIndex);
-			if (interstitial.IsLoaded())
-			{
-				interstitial.Show();
-			}
-		}
-// #endif
-	}
-
+	
 	public bool GetLastAdsIsSuccessToLoaded(){
 		return lastAdsIsSuccessToLoaded;
 	}
@@ -173,17 +152,19 @@ public class AdMobManager : Singleton<AdMobManager> {
 
 	public void HandleOnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
 	{
-		SceneController.Instance.GoToScene(goToSceneWithAdName);
+		AdsManager.Instance.SetAdsEventResult(1);
+        lastAdsIsSuccessToLoaded = false;
 	}
 
 	public void HandleOnAdOpened(object sender, EventArgs args)
 	{
-			
+        
 	}
 
 	public void HandleOnAdClosed(object sender, EventArgs args)
 	{
-		SceneController.Instance.GoToScene(goToSceneWithAdName);			
+        AdsManager.Instance.SetAdsEventResult(3);
+		lastAdsIsSuccessToLoaded = true;
 	}
 
 	public void HandleOnAdLeavingApplication(object sender, EventArgs args)
