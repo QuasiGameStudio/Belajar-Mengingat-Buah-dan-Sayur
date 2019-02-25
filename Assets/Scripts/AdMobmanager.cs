@@ -67,11 +67,6 @@ public class AdMobManager : Singleton<AdMobManager> {
 		if(bannerView != null){
 			bannerView.Hide();
 		}
-		
-// #if GOOGLE_MOBILE_ADS	
-		RequestBanner(idIndex);					
-// #endif
-		bannerView.Show();
 
 	}
 
@@ -124,9 +119,12 @@ public class AdMobManager : Singleton<AdMobManager> {
 
 	public void ShowInterstitial(){
 // #if GOOGLE_MOBILE_ADS
+
+		Debug.Log("SSSS");
+		
         if (interstitial.IsLoaded())
         {
-            interstitial.Show();
+            interstitial.Show();			
         }
         else
         {
@@ -138,6 +136,8 @@ public class AdMobManager : Singleton<AdMobManager> {
         }
 // #endif
 	}
+
+	
 	
 	public bool GetLastAdsIsSuccessToLoaded(){
 		return lastAdsIsSuccessToLoaded;
@@ -147,13 +147,14 @@ public class AdMobManager : Singleton<AdMobManager> {
 	// Called when an ad request has successfully loaded.
 	public void HandleOnAdLoaded(object sender, EventArgs args)
 	{
-			
+		lastAdsIsSuccessToLoaded = true;
 	}
 
 	public void HandleOnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
 	{
-		AdsManager.Instance.SetAdsEventResult(1);
+		
         lastAdsIsSuccessToLoaded = false;
+		
 	}
 
 	public void HandleOnAdOpened(object sender, EventArgs args)
@@ -164,7 +165,7 @@ public class AdMobManager : Singleton<AdMobManager> {
 	public void HandleOnAdClosed(object sender, EventArgs args)
 	{
         AdsManager.Instance.SetAdsEventResult(3);
-		lastAdsIsSuccessToLoaded = true;
+		
 	}
 
 	public void HandleOnAdLeavingApplication(object sender, EventArgs args)

@@ -20,6 +20,10 @@ public class GameManager : Singleton<GameManager> {
 	//15 //30 //55 //70 //1.55 //2.35 //3.10 //4 //4.50 //6.40
 	private float[] timeLimits = {70f,90f,115f,130f,175f,215f,250f,300f,350f,460f};
 
+	void Awake(){
+		AdMobManager.Instance.RequestBanner(0);
+	}
+
 	// Use this for initialization
 	void Start () {
 		AdMobManager.Instance.Set();		
@@ -40,6 +44,8 @@ public class GameManager : Singleton<GameManager> {
 				
 				break;
 		}	
+
+		AdMobManager.Instance.ShowBanner();
 	}
 	
 	// Update is called once per frame
@@ -79,13 +85,14 @@ public class GameManager : Singleton<GameManager> {
 	void GameOver(){
 
 		TimeManager.Instance.ResetTime();
-
-		gameIsPlaying = false;
+		GUIManager.Instance.SetClockTextToZero();
 
 		GUIManager.Instance.ActiveGameOverPanel();
 
 		//Disable Game Music
 		gameMusic.GetComponent<AudioSource>().volume = 0.05f;
+		
+		gameIsPlaying = false;
 
 	}
 
@@ -171,6 +178,8 @@ public class GameManager : Singleton<GameManager> {
 
 		//Disable Game Music
 		gameMusic.GetComponent<AudioSource>().volume = 0.05f;
+
+		
 
 		gameIsPlaying = false;
 	}

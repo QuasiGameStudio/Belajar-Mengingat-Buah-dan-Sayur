@@ -5,14 +5,12 @@ using UnityEngine;
 public class AdsManager : Singleton<AdsManager>
 {
 
-    string goToSceneWithAdName = "null";
+    string goToSceneWithAdName = "Game";
 
     void OnGUI(){
-        GUI.Label(new Rect(10, 10, 150, 100), "ThresHold: " + GameData.Instance.GetAdsThresHold(0));
+        //GUI.Label(new Rect(10, 10, 150, 100), "ThresHold: " + GameData.Instance.GetAdsThresHold(0));
     }
-
-    
-    
+        
     public void CallAdsWithScene(int adsType, int adsIdIndex,string sceneName){
         switch (adsType){
             case 0:
@@ -27,18 +25,21 @@ public class AdsManager : Singleton<AdsManager>
     public void CallInterstitialAds(int adsIdIndex,string sceneName){
 
         int adsType = 0;
-        this.goToSceneWithAdName = sceneName;
+        // this.goToSceneWithAdName = sceneName;
 
         if(GameData.Instance.GetAdsThresHold(adsType) < 3){
+
             GameData.Instance.AddAdsThresHold(adsType); 
             SceneController.Instance.GoToScene(goToSceneWithAdName);           
+                                    
         } else {
-            
-            AdMobManager.Instance.RequestInterstitial(adsIdIndex);
-            AdMobManager.Instance.ShowInterstitial();
 
-            if(AdMobManager.Instance.GetLastAdsIsSuccessToLoaded())
-                GameData.Instance.ResetAdsThresHold(adsType);
+            if(AdMobManager.Instance.GetLastAdsIsSuccessToLoaded()){
+                AdMobManager.Instance.ShowInterstitial();
+            } else {
+                SceneController.Instance.GoToScene(goToSceneWithAdName);           
+            }
+
         }
 
         
@@ -57,14 +58,15 @@ public class AdsManager : Singleton<AdsManager>
             case 0:
                 
                 break;
-            case 1:
-                SceneController.Instance.GoToScene(goToSceneWithAdName);
+            case 1:                
+                
                 break;
             case 2:
                 
                 break;
             case 3:
                 SceneController.Instance.GoToScene(goToSceneWithAdName);
+                GameData.Instance.ResetAdsThresHold(0);
                 break;
             case 4:
                 

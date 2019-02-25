@@ -8,6 +8,11 @@ public class HomeManager : MonoBehaviour {
 	[SerializeField] private Text gameTypeText = null;
 	[SerializeField] private GameObject[] levelButtons = null;
 
+	void Awake(){
+		AdMobManager.Instance.RequestBanner(0);
+		AdMobManager.Instance.RequestInterstitial(0);
+	}
+
 	// Use this for initialization
 	void Start () {
 		SetLevelButtons(GameData.Instance.GetGameType());
@@ -25,8 +30,8 @@ public class HomeManager : MonoBehaviour {
 		}	
 		StartCoroutine("PopUpLevelButtons");
 
-		AdMobManager.Instance.Set();		
 		AdMobManager.Instance.ShowBanner();
+		
 	}
 	
 	// Update is called once per frame
@@ -41,7 +46,6 @@ public class HomeManager : MonoBehaviour {
 			lvlButton.GetComponent<Animator>().SetTrigger("PopUp");
 			AudioShouter.Instance.ShoutClip(0);
 		}
-
 	}
 
 	public void SetLevelButtons(int gameType){

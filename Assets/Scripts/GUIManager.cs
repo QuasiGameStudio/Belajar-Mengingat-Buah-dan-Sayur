@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GUIManager : Singleton<GUIManager> {
 
 	[SerializeField] private GameObject finishPanel = null;
+	[SerializeField] private GameObject finishBackground = null;
 	[SerializeField] private GameObject gameOverPanel = null;
 	[SerializeField] private Text clockText = null;
 	[SerializeField] private Text finishClockText = null;
@@ -31,6 +32,7 @@ public class GUIManager : Singleton<GUIManager> {
 
 	public void ActiveFinishPanel(){
 		finishPanel.SetActive(true);
+		finishBackground.SetActive(true);
 		finishPanel.GetComponent<Animator>().SetTrigger("PopUp");
 		finishClockText.text = clockText.text;
 
@@ -51,11 +53,17 @@ public class GUIManager : Singleton<GUIManager> {
 
 		//Fanfare Win
 		AudioShouter.Instance.ShoutClip(8);
+		//Active ConfettiShower
+		SFXManager.Instance.ActiveConfettiShower();
 
 	}
 
 	public void UpdateClockText(){
 		clockText.text = TimeManager.Instance.GetTimeString();
+	}
+
+	public void SetClockTextToZero(){
+		clockText.text = "00:00";
 	}
 
 	public void UpdateClockImageFilled(float timeLimit, float time){
