@@ -24,6 +24,7 @@ public class SFXManager : Singleton<SFXManager>
             Vector3 realWorldPos = Camera.main.ScreenToWorldPoint(pos);
 
             GameObject tEffect = Instantiate(touchEffect, realWorldPos, this.transform.rotation, this.transform);
+            AudioShouter.Instance.ShoutClip(9);
         }
         
     }
