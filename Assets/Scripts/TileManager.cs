@@ -94,12 +94,17 @@ public class TileManager : Singleton<TileManager> {
         //Set arrTileNumbers
 		for (int i = 0; i < tiles.Length; i++)
 		{
-							
+
+			//disbled button to prevent button clicked when poping				
+			tiles[i].transform.GetChild(1).GetComponent<Button>().enabled = false;
+
+
 			tiles[i].GetComponent<Tile>().SetNumber(arrTileNumbers[i]);	
 										
 			//tile
 			tiles[i].GetComponent<Tile>().SetMainSprite(fruitSprites[arrTileNumbers[i]]);
 			tiles[i].GetComponent<Tile>().SetNumber(arrTileNumbers[i]);
+
 		}
 
 		StartCoroutine("PopUpTiles");
@@ -112,6 +117,12 @@ public class TileManager : Singleton<TileManager> {
 			tile.GetComponent<Animator>().SetTrigger("PopUp");
 			yield return new WaitForSeconds(0.1f);
 			AudioShouter.Instance.ShoutClip(0);
+		}
+
+		//After Popup is finished, let enable button
+		foreach (GameObject tile in tiles)
+		{
+			tile.transform.GetChild(1).GetComponent<Button>().enabled = true;			
 		}
 
 	}
