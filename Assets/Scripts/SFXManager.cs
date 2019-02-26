@@ -6,9 +6,9 @@ public class SFXManager : Singleton<SFXManager>
 {
 
     [SerializeField]
-    private GameObject confettiShower;
+    private GameObject confettiShower = null;
     [SerializeField]
-    private GameObject touchEffect;
+    private GameObject touchEffect = null;
     // Start is called before the first frame update
     void Start()
     {

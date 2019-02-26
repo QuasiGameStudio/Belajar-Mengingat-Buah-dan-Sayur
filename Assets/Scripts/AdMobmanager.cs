@@ -34,7 +34,7 @@ public class AdMobManager : Singleton<AdMobManager> {
 	private string[] bannerIds = new string[] {
 		"ca-app-pub-3204981671781860/2343467205"
 	};	
-	private string[] interstitialIds = new string {
+	private string[] interstitialIds = new string[] {
 		"ca-app-pub-3204981671781860/8130856791"
 	};
 
