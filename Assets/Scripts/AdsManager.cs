@@ -27,16 +27,18 @@ public class AdsManager : Singleton<AdsManager>
         int adsType = 0;
         // this.goToSceneWithAdName = sceneName;
 
-        if(GameData.Instance.GetAdsThresHold(adsType) < 3){
+        if(GameData.Instance.GetAdsThresHold(adsType) < 2){
 
             GameData.Instance.AddAdsThresHold(adsType); 
             SceneController.Instance.GoToScene(goToSceneWithAdName);           
                                     
         } else {
-
+            Debug.Log("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
             if(AdMobManager.Instance.GetLastAdsIsSuccessToLoaded()){
                 AdMobManager.Instance.ShowInterstitial();
+                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             } else {
+                Debug.Log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
                 SceneController.Instance.GoToScene(goToSceneWithAdName);           
             }
 

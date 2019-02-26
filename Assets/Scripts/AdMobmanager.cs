@@ -103,6 +103,7 @@ public class AdMobManager : Singleton<AdMobManager> {
 		else
 			requestInterstitial = new AdRequest.Builder().Build();
 		
+		interstitial.OnAdLoaded += HandleOnAdLoaded;
 		interstitial.OnAdClosed += HandleOnAdClosed;
 		interstitial.OnAdFailedToLoad += HandleOnAdFailedToLoad;
 
