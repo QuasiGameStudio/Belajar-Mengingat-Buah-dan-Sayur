@@ -15,7 +15,7 @@ public class AdMobManager : Singleton<AdMobManager> {
 	#region
 // #if GOOGLE_MOBILE_ADS
 	
-	bool testingMode = true;
+	bool testingMode = false;
 
 	BannerView bannerView;
 	InterstitialAd interstitial;
@@ -31,16 +31,16 @@ public class AdMobManager : Singleton<AdMobManager> {
 	private string appId = "ca-app-pub-3204981671781860~3979982505";	
 
 	//original ads id
-	// private string[] bannerIds = new string[] {
-	// 	"ca-app-pub-3204981671781860/2343467205"
-	// };	
-	// private string[] interstitialIds = new string {
-	// 	"ca-app-pub-3204981671781860/8130856791"
-	// };
+	private string[] bannerIds = new string[] {
+		"ca-app-pub-3204981671781860/2343467205"
+	};	
+	private string[] interstitialIds = new string {
+		"ca-app-pub-3204981671781860/8130856791"
+	};
 
 	//test ads id
-	private string[] bannerIds = new string[] {"ca-app-pub-3940256099942544/6300978111"};	
-	private string[] interstitialIds = new string[] {"ca-app-pub-3940256099942544/1033173712"};
+	// private string[] bannerIds = new string[] {"ca-app-pub-3940256099942544/6300978111"};	
+	// private string[] interstitialIds = new string[] {"ca-app-pub-3940256099942544/1033173712"};
 
 	//Edit with your device id
 	private string testDeviceId = "81A5D70CE479330C99C85E799E15DA1A";
