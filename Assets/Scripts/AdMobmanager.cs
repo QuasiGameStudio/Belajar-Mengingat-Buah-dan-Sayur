@@ -58,14 +58,14 @@ public class AdMobManager : Singleton<AdMobManager> {
 		MobileAds.Initialize(appId);
 // #endif
 
-		Set();	
+		Reset();	
 
 	}
 
-	public void Set(){
+	public void Reset(){
 
 		if(bannerView != null){
-			bannerView.Hide();
+			DestroyBanner();
 		}
 
 	}
@@ -127,14 +127,14 @@ public class AdMobManager : Singleton<AdMobManager> {
         {
             interstitial.Show();			
         }
-        else
-        {
-            RequestInterstitial(idIndex);
-            if (interstitial.IsLoaded())
-            {
-                interstitial.Show();
-            }
-        }
+        // else
+        // {
+        //     RequestInterstitial(idIndex);
+        //     if (interstitial.IsLoaded())
+        //     {
+        //         interstitial.Show();
+        //     }
+        // }
 // #endif
 	}
 
@@ -165,13 +165,12 @@ public class AdMobManager : Singleton<AdMobManager> {
 
 	public void HandleOnAdClosed(object sender, EventArgs args)
 	{
-        AdsManager.Instance.SetAdsEventResult(3);
-		
+        AdsManager.Instance.SetAdsEventResult(3);		
 	}
 
 	public void HandleOnAdLeavingApplication(object sender, EventArgs args)
 	{
-			
+		
 	}
 	
 // #endif

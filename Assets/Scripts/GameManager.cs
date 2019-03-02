@@ -21,13 +21,16 @@ public class GameManager : Singleton<GameManager> {
 	private float[] timeLimits = {70f,90f,115f,130f,175f,215f,250f,300f,350f,460f};
 
 	void Awake(){
+
+		AdMobManager.Instance.Reset();
+
 		AdMobManager.Instance.RequestBanner(0);
 	}
 
 	// Use this for initialization
 	void Start () {
-		AdMobManager.Instance.Set();		
-		AdMobManager.Instance.ShowBanner();
+		
+		
 
 		gameType = GameData.Instance.GetGameType();
 		gameLevel = GameData.Instance.GetLevelNum();

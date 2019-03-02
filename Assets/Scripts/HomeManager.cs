@@ -9,8 +9,16 @@ public class HomeManager : MonoBehaviour {
 	[SerializeField] private GameObject[] levelButtons = null;
 
 	void Awake(){
+
+		AdMobManager.Instance.Reset();
+
 		AdMobManager.Instance.RequestBanner(0);
-		AdMobManager.Instance.RequestInterstitial(0);
+
+
+		//can Request Interstitial?
+		if(GameData.Instance.GetAdsThresHold(0) >= 2){
+			AdMobManager.Instance.RequestInterstitial(0);
+		}
 	}
 
 	// Use this for initialization
